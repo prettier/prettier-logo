@@ -1,0 +1,132 @@
+// Colors
+.c1
+  stroke: #56B3B4
+.c2
+  stroke: #EA5E5E
+.c3
+  stroke: #F7BA3E
+.c4
+  stroke: #BF85BF
+
+.secondary,
+.initial g > path
+  opacity: 0.5;
+  stroke: #4D616E;
+
+color-duration = 1400ms
+opacity-duration = 700ms
+offset-duration = 900ms
+delay = 70ms
+easing = cubic-bezier(0.43, 0.12, 0.44, 1)
+
+initial-offsets = {
+  l1: -100
+  l2: 120
+  l3: 40
+  l4: -150
+  l5: 100
+  l6: 190
+  l7: -30
+  l8: 50
+  l9: 150
+  l10: -100
+  l11: -150
+}
+
+total = 220
+
+for i in 1..11
+  .l{i} > path
+    transition-delay: delay * i, delay * i + (color-duration - offset-duration), delay * i + (opacity-duration - offset-duration)
+
+dash(line, path, length, offset)
+  .{line} .{path}
+    stroke-dasharray: length,(total - length)
+    stroke-dashoffset: -(offset)
+
+  .initial .{line} .{path}
+    stroke-dashoffset: -(offset) - initial-offsets[line]
+
+.dash
+  stroke-linecap: round
+  stroke-width: 10
+  transition-timing-function: easing
+  transition-property: stroke-dashoffset, stroke, opacity
+  transition-duration: offset-duration
+
+dash(l1, p1, 120, 0)
+dash(l1, p2, 60, 140)
+
+dash(l2, p1, 30, 0)
+dash(l2, p2, 100, 50)
+dash(l2, p3, 30, 170)
+
+dash(l3, p1, 70, 0)
+dash(l3, p2, 40, 90)
+dash(l3, p3, 10, 150)
+dash(l3, p4, 20, 180)
+
+dash(l4, p1, 20, 0)
+dash(l4, p2, 10, 40)
+dash(l4, p3, 30, 70)
+dash(l4, p4, 50, 120)
+dash(l4, p5, 10, 190)
+
+dash(l5, p1, 50, 0)
+dash(l5, p2, 30, 70)
+dash(l5, p3, 50, 120)
+dash(l5, p4, 10, 190)
+
+dash(l6, p1, 10, 0)
+dash(l6, p2, 30, 30)
+dash(l6, p3, 80, 80)
+dash(l6, p4, 20, 180)
+
+dash(l7, p1, 40, 0)
+dash(l7, p2, 40, 60)
+dash(l7, p3, 30, 120)
+dash(l7, p4, 30, 170)
+
+dash(l8, p1, 10, 0)
+dash(l8, p2, 90, 30)
+dash(l8, p3, 20, 140)
+dash(l8, p4, 20, 180)
+
+dash(l9, p1, 50, 0)
+dash(l9, p2, 20, 70)
+dash(l9, p3, 90, 110)
+
+dash(l10, p1, 20, 0)
+dash(l10, p2, 10, 40)
+dash(l10, p3, 40, 70)
+dash(l10, p4, 10, 130)
+dash(l10, p5, 40, 160)
+
+dash(l11, p1, 50, 0)
+dash(l11, p2, 60, 70)
+dash(l11, p3, 50, 150)
+
+// Misc
+body
+  background: #1A2B34
+
+button
+  border: solid 1px white
+  padding: 10px 30px
+  border-radius: 3px
+  font-size: 1.5em
+  font-weight: bold
+  color: white
+  background-color: transparent
+  outline: none
+  display: block
+  margin: 10px
+  opacity: 0.8
+  transition: opacity .2s ease
+
+  &:hover
+    opacity: 1
+
+  &:active
+    transform: translateY(2px)
+
