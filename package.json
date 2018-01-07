@@ -5,7 +5,10 @@
   "license": "MIT",
   "author": "Quentin Gliech <quentin.gliech@etu.unistra.fr>",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "deploy": "npm run build && npm run gh-pages",
+    "gh-pages": "gh-pages -d dist"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -13,6 +16,7 @@
     "preact": "^8.2.7"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "parcel-bundler": "^1.4.1",
     "stylus": "^0.54.5"
   }
