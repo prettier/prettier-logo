@@ -1,12 +1,17 @@
 {
-  "name": "prettier-logo",
+  "name": "prettier-animated-logo",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Quentin Gliech <quentin.gliech@etu.unistra.fr>",
   "scripts": {
     "start": "parcel index.html"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-preact": "^1.1.0",
+    "preact": "^8.2.7"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.4.1",
     "stylus": "^0.54.5"
