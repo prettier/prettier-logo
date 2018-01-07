@@ -1,32 +1,38 @@
 import { h, render, Component } from "preact";
 /** @jsx h */
 
-import lines from "./lines.json";
+import data from "./data.json";
 import "./style.styl";
 
-const Line = ({ index, dashes }) => (
+const Line = ({ index, dashes, total }) => (
   <g className={`l${index}`}>
     {dashes.map(({ color }, j) => (
       <path
-        d={`m 5 ${index * 20 + 5} l 200 0`}
+        d={`m 5 ${index * 20 + 5} l ${total} 0`}
         class={["dash", `p${j}`, `c${color}`].join(" ")}
       />
     ))}
   </g>
 );
 
-const Svg = ({ lines, active }) => (
-  <svg
-    width="210"
-    height="210"
-    viewbox="0 0 210 210"
-    id="logo"
-    class={active ? "" : "initial"}
-    version="1.1"
-  >
-    {lines.map(({ dashes }, index) => <Line dashes={dashes} index={index} />)}
-  </svg>
-);
+const Svg = ({ data: { total, lines }, active }) => {
+  const height = lines.length * 20 + 10;
+  const width = total + 20;
+  return (
+    <svg
+      height={height}
+      width={width}
+      id="logo"
+      viewbox={`0 0 ${height} ${width}`}
+      class={active ? "" : "initial"}
+      version="1.1"
+    >
+      {lines.map(({ dashes }, index) => (
+        <Line total={total} dashes={dashes} index={index} />
+      ))}
+    </svg>
+  );
+};
 
 class App extends Component {
   toggle() {
@@ -36,9 +42,9 @@ class App extends Component {
   render() {
     const toggle = () => this.toggle();
     return (
-      <div>
-        <Svg active={this.state.active} lines={lines} />
-        <button onClick={toggle}>Animate</button>
+      <div id="app">
+        <Svg active={this.state.active} data={data} />
+        <button onClick={toggle}>Toggle</button>
       </div>
     );
   }
