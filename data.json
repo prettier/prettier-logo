@@ -3,6 +3,7 @@
   "lines": [
     {
       "initialOffset": 130,
+      "roll": 1,
       "dashes": [
         {
           "start": 0,
@@ -20,6 +21,7 @@
     },
     {
       "initialOffset": -100,
+      "roll": -1,
       "dashes": [
         {
           "start": 20,
@@ -42,6 +44,7 @@
     },
     {
       "initialOffset": 120,
+      "roll": 1,
       "dashes": [
         {
           "start": 40,
@@ -69,6 +72,7 @@
     },
     {
       "initialOffset": 40,
+      "roll": 1,
       "dashes": [
         {
           "start": 0,
@@ -101,6 +105,7 @@
     },
     {
       "initialOffset": -150,
+      "roll": -1,
       "dashes": [
         {
           "start": 70,
@@ -133,6 +138,7 @@
     },
     {
       "initialOffset": 100,
+      "roll": 1,
       "dashes": [
         {
           "start": 0,
@@ -168,6 +174,7 @@
     },
     {
       "initialOffset": 190,
+      "roll": 2,
       "dashes": [
         {
           "start": 20,
@@ -204,6 +211,7 @@
     },
     {
       "initialOffset": -30,
+      "roll": -1,
       "dashes": [
         {
           "start": 50,
@@ -236,6 +244,7 @@
     },
     {
       "initialOffset": 50,
+      "roll": 1,
       "dashes": [
         {
           "start": 20,
@@ -271,6 +280,7 @@
     },
     {
       "initialOffset": 150,
+      "roll": -2,
       "dashes": [
         {
           "start": 10,
@@ -297,6 +307,7 @@
     },
     {
       "initialOffset": -100,
+      "roll": 1,
       "dashes": [
         {
           "start": 40,
@@ -332,6 +343,7 @@
     },
     {
       "initialOffset": -50,
+      "roll": 2,
       "dashes": [
         {
           "start": 60,
@@ -358,6 +370,7 @@
     },
     {
       "initialOffset": -150,
+      "roll": -1,
       "dashes": [
         {
           "start": 40,

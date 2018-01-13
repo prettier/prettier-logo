@@ -12,13 +12,10 @@
 .c1, .c2, .c3, .c4
   opacity: 1
 
-g > path,
-.initial g > path
+g > path
   opacity: 0.5;
   stroke: #4D616E;
 
-color-duration = 1400ms
-opacity-duration = 700ms
 offset-duration = 900ms
 delay = 70ms
 easing = cubic-bezier(0.43, 0.12, 0.44, 1)
@@ -29,23 +26,34 @@ total = data.total + 20
 
 line(i)
   .l{i} > path
-    transition-delay: delay * i, delay * i + (color-duration - offset-duration), delay * i + (opacity-duration - offset-duration)
+    animation-delay: delay * i, delay * i + offset-duration
 
 
-dash(line, path, length, offset, initial-offset)
+dash(line, path, length, offset, initial-offset, roll)
+  @keyframes l{line}p{path}-initial
+    0%
+      stroke-dashoffset: -(offset) - initial-offset
+    100%
+      stroke-dashoffset: -(offset)
+
+  @keyframes l{line}p{path}
+    0%, 60%
+      stroke-dashoffset: -(offset)
+    100%
+      stroke-dashoffset: -(offset) + (roll * total)
+
   .l{line} .p{path}
     stroke-dasharray: length,(total - length)
-    stroke-dashoffset: -(offset)
-
-  .initial .l{line} .p{path}
-    stroke-dashoffset: -(offset) - initial-offset
+    animation-name: s('l%sp%s-initial', unquote(line), unquote(path)), s('l%sp%s', unquote(line), unquote(path))
 
 .dash
   stroke-linecap: round
   stroke-width: 10
-  transition-timing-function: easing
-  transition-property: stroke-dashoffset, stroke, opacity
-  transition-duration: offset-duration
+
+  animation-timing-function: easing, ease-in-out
+  animation-duration: offset-duration, 6s
+  animation-fill-mode: both, none
+  animation-iteration-count: 1, infinite;
 
 for i, l in lines
   line(i)
@@ -53,7 +61,7 @@ for i, l in lines
   initial-offset = l.initialOffset
 
   for j, d in dashes
-    dash(i, j, d.length, d.start, initial-offset)
+    dash(i, j, d.length, d.start, initial-offset, l.roll)
 
 // Misc
 body

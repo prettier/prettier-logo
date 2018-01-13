@@ -15,7 +15,7 @@ const Line = ({ index, dashes, total }) => (
   </g>
 );
 
-const Svg = ({ data: { total, lines }, active }) => {
+const Svg = ({ data: { total, lines } }) => {
   const height = lines.length * 20 + 10;
   const width = total + 20;
   return (
@@ -24,7 +24,6 @@ const Svg = ({ data: { total, lines }, active }) => {
       width={width}
       id="logo"
       viewbox={`0 0 ${height} ${width}`}
-      class={active ? "" : "initial"}
       version="1.1"
     >
       {lines.map(({ dashes }, index) => (
@@ -34,20 +33,9 @@ const Svg = ({ data: { total, lines }, active }) => {
   );
 };
 
-class App extends Component {
-  toggle() {
-    this.setState({ active: !this.state.active });
-  }
-
-  render() {
-    const toggle = () => this.toggle();
-    return (
-      <div id="app">
-        <Svg active={this.state.active} data={data} />
-        <button onClick={toggle}>Toggle</button>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.body);
+render(
+  <div id="app">
+    <Svg data={data} />
+  </div>,
+  document.body
+);
