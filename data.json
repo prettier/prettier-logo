@@ -1,21 +1,39 @@
 {
-  "total": 500,
+  "total": 680,
   "lines": [
     {
       "initialOffset": 130,
       "roll": 1,
       "dashes": [
         {
-          "start": 0,
-          "length": 40
+          "length": 40,
+          "start": 565,
+          "color": 0
         },
         {
-          "start": 60,
-          "length": 140
+          "length": 130,
+          "start": 415,
+          "color": 0
         },
         {
-          "start": 220,
-          "length": 100
+          "length": 40,
+          "start": 355,
+          "color": 0
+        },
+        {
+          "length": 130,
+          "start": 205,
+          "color": 0
+        },
+        {
+          "length": 10,
+          "start": 175,
+          "color": 0
+        },
+        {
+          "length": 45,
+          "start": 110,
+          "color": 0
         }
       ]
     },
@@ -24,21 +42,39 @@
       "roll": -1,
       "dashes": [
         {
-          "start": 20,
-          "length": 60
+          "length": 120,
+          "start": 525,
+          "color": 0
         },
         {
-          "start": 100,
+          "length": 20,
+          "start": 485,
+          "color": 0
+        },
+        {
+          "length": 60,
+          "start": 405,
+          "color": 0
+        },
+        {
           "length": 120,
+          "start": 265,
           "color": 1
         },
         {
-          "start": 240,
-          "length": 40
+          "length": 60,
+          "start": 185,
+          "color": 0
         },
         {
-          "start": 300,
-          "length": 40
+          "length": 60,
+          "start": 105,
+          "color": 0
+        },
+        {
+          "length": 40,
+          "start": 46,
+          "color": 0
         }
       ]
     },
@@ -47,26 +83,39 @@
       "roll": 1,
       "dashes": [
         {
-          "start": 40,
-          "length": 40
-        },
-        {
-          "start": 100,
-          "length": 30,
-          "color": 2
-        },
-        {
-          "start": 150,
           "length": 100,
+          "start": 505,
+          "color": 0
+        },
+        {
+          "length": 50,
+          "start": 435,
+          "color": 0
+        },
+        {
+          "length": 100,
+          "start": 315,
           "color": 3
         },
         {
-          "start": 270,
-          "length": 130
+          "length": 30,
+          "start": 265,
+          "color": 2
         },
         {
-          "start": 420,
-          "length": 20
+          "length": 30,
+          "start": 215,
+          "color": 0
+        },
+        {
+          "length": 50,
+          "start": 145,
+          "color": 0
+        },
+        {
+          "length": 50,
+          "start": 75,
+          "color": 0
         }
       ]
     },
@@ -75,31 +124,44 @@
       "roll": 1,
       "dashes": [
         {
-          "start": 0,
-          "length": 80
+          "length": 80,
+          "start": 545,
+          "color": 0
         },
         {
-          "start": 100,
-          "length": 70,
+          "length": 80,
+          "start": 445,
+          "color": 0
+        },
+        {
+          "length": 10,
+          "start": 415,
           "color": 1
         },
         {
-          "start": 190,
           "length": 40,
+          "start": 355,
           "color": 4
         },
         {
-          "start": 250,
-          "length": 10,
+          "length": 70,
+          "start": 265,
           "color": 1
         },
         {
-          "start": 280,
-          "length": 20
+          "length": 60,
+          "start": 185,
+          "color": 0
         },
         {
-          "start": 320,
-          "length": 100
+          "length": 90,
+          "start": 75,
+          "color": 0
+        },
+        {
+          "length": 20,
+          "start": 35,
+          "color": 0
         }
       ]
     },
@@ -108,31 +170,49 @@
       "roll": -1,
       "dashes": [
         {
-          "start": 70,
-          "length": 10
+          "length": 190,
+          "start": 485,
+          "color": 0
         },
         {
-          "start": 100,
-          "length": 20,
-          "color": 3
-        },
-        {
-          "start": 140,
           "length": 10,
-          "color": 1
+          "start": 455,
+          "color": 0
         },
         {
-          "start": 170,
-          "length": 30
-        },
-        {
-          "start": 220,
           "length": 50,
+          "start": 385,
           "color": 2
         },
         {
-          "start": 290,
-          "length": 90
+          "length": 40,
+          "start": 325,
+          "color": 0
+        },
+        {
+          "length": 40,
+          "start": 265,
+          "color": 3
+        },
+        {
+          "length": 10,
+          "start": 235,
+          "color": 0
+        },
+        {
+          "length": 50,
+          "start": 165,
+          "color": 0
+        },
+        {
+          "length": 30,
+          "start": 115,
+          "color": 0
+        },
+        {
+          "length": 80,
+          "start": 15,
+          "color": 0
         }
       ]
     },
@@ -141,34 +221,34 @@
       "roll": 1,
       "dashes": [
         {
-          "start": 0,
-          "length": 20
+          "length": 140,
+          "start": 455,
+          "color": 0
         },
         {
-          "start": 40,
-          "length": 40
-        },
-        {
-          "start": 100,
           "length": 50,
-          "color": 4
-        },
-        {
-          "start": 170,
-          "length": 30
-        },
-        {
-          "start": 220,
-          "length": 50,
+          "start": 385,
           "color": 3
         },
         {
-          "start": 290,
-          "length": 40
+          "length": 40,
+          "start": 325,
+          "color": 0
         },
         {
-          "start": 350,
-          "length": 40
+          "length": 40,
+          "start": 265,
+          "color": 4
+        },
+        {
+          "length": 100,
+          "start": 145,
+          "color": 0
+        },
+        {
+          "length": 120,
+          "start": 5,
+          "color": 0
         }
       ]
     },
@@ -177,35 +257,49 @@
       "roll": 2,
       "dashes": [
         {
-          "start": 20,
-          "length": 60
+          "length": 60,
+          "start": 595,
+          "color": 0
         },
         {
-          "start": 100,
           "length": 10,
+          "start": 565,
+          "color": 0
+        },
+        {
+          "length": 100,
+          "start": 445,
+          "color": 0
+        },
+        {
+          "length": 80,
+          "start": 345,
           "color": 1
         },
         {
-          "start": 130,
           "length": 30,
+          "start": 295,
           "color": 3
         },
         {
-          "start": 180,
-          "length": 80,
+          "length": 10,
+          "start": 265,
           "color": 2
         },
         {
-          "start": 280,
-          "length": 20
+          "length": 20,
+          "start": 225,
+          "color": 0
         },
         {
-          "start": 320,
-          "length": 100
+          "length": 80,
+          "start": 125,
+          "color": 0
         },
         {
-          "start": 440,
-          "length": 20
+          "length": 80,
+          "start": 25,
+          "color": 0
         }
       ]
     },
@@ -214,31 +308,44 @@
       "roll": -1,
       "dashes": [
         {
-          "start": 50,
-          "length": 30
+          "length": 120,
+          "start": 515,
+          "color": 0
         },
         {
-          "start": 100,
-          "length": 40,
-          "color": 1
+          "length": 60,
+          "start": 435,
+          "color": 0
         },
         {
-          "start": 160,
-          "length": 40,
-          "color": 2
-        },
-        {
-          "start": 220,
           "length": 30,
+          "start": 385,
           "color": 4
         },
         {
-          "start": 270,
-          "length": 60
+          "length": 40,
+          "start": 325,
+          "color": 2
         },
         {
-          "start": 350,
-          "length": 60
+          "length": 40,
+          "start": 265,
+          "color": 1
+        },
+        {
+          "length": 40,
+          "start": 205,
+          "color": 0
+        },
+        {
+          "length": 80,
+          "start": 105,
+          "color": 0
+        },
+        {
+          "length": 50,
+          "start": 35,
+          "color": 0
         }
       ]
     },
@@ -247,34 +354,39 @@
       "roll": 1,
       "dashes": [
         {
-          "start": 20,
-          "length": 30
+          "length": 30,
+          "start": 585,
+          "color": 0
         },
         {
-          "start": 70,
-          "length": 10
+          "length": 80,
+          "start": 485,
+          "color": 0
         },
         {
-          "start": 100,
-          "length": 10,
+          "length": 60,
+          "start": 405,
+          "color": 0
+        },
+        {
+          "length": 90,
+          "start": 295,
           "color": 3
         },
         {
-          "start": 130,
-          "length": 90,
+          "length": 10,
+          "start": 265,
           "color": 4
         },
         {
-          "start": 240,
-          "length": 20
+          "length": 100,
+          "start": 145,
+          "color": 0
         },
         {
-          "start": 280,
-          "length": 80
-        },
-        {
-          "start": 380,
-          "length": 100
+          "length": 40,
+          "start": 85,
+          "color": 0
         }
       ]
     },
@@ -283,25 +395,34 @@
       "roll": -2,
       "dashes": [
         {
-          "start": 10,
-          "length": 70
+          "length": 140,
+          "start": 445,
+          "color": 0
         },
         {
-          "start": 100,
+          "length": 80,
+          "start": 345,
+          "color": 0
+        },
+        {
           "length": 50,
+          "start": 195,
+          "color": 0
+        },
+        {
+          "length": 60,
+          "start": 265,
           "color": 4
         },
         {
-          "start": 170,
-          "length": 20
+          "length": 10,
+          "start": 165,
+          "color": 0
         },
         {
-          "start": 210,
-          "length": 90
-        },
-        {
-          "start": 320,
-          "length": 90
+          "length": 75,
+          "start": 70,
+          "color": 0
         }
       ]
     },
@@ -310,34 +431,29 @@
       "roll": 1,
       "dashes": [
         {
-          "start": 40,
-          "length": 40
+          "length": 110,
+          "start": 415,
+          "color": 0
         },
         {
-          "start": 100,
+          "length": 50,
+          "start": 345,
+          "color": 0
+        },
+        {
           "length": 20,
-          "color": 1
-        },
-        {
-          "start": 140,
-          "length": 10,
+          "start": 305,
           "color": 3
         },
         {
-          "start": 170,
-          "length": 40
+          "length": 20,
+          "start": 265,
+          "color": 1
         },
         {
-          "start": 230,
-          "length": 10
-        },
-        {
-          "start": 260,
-          "length": 80
-        },
-        {
-          "start": 360,
-          "length": 20
+          "length": 130,
+          "start": 115,
+          "color": 0
         }
       ]
     },
@@ -346,25 +462,34 @@
       "roll": 2,
       "dashes": [
         {
-          "start": 60,
-          "length": 20
+          "length": 30,
+          "start": 485,
+          "color": 0
         },
         {
-          "start": 100,
-          "length": 50,
+          "length": 120,
+          "start": 345,
+          "color": 0
+        },
+        {
+          "length": 60,
+          "start": 265,
           "color": 2
         },
         {
-          "start": 170,
-          "length": 60
+          "length": 20,
+          "start": 225,
+          "color": 0
         },
         {
-          "start": 250,
-          "length": 40
+          "length": 40,
+          "start": 165,
+          "color": 0
         },
         {
-          "start": 310,
-          "length": 20
+          "length": 80,
+          "start": 65,
+          "color": 0
         }
       ]
     },
@@ -373,20 +498,24 @@
       "roll": -1,
       "dashes": [
         {
-          "start": 40,
-          "length": 60
+          "length": 50,
+          "start": 405,
+          "color": 0
         },
         {
-          "start": 120,
-          "length": 60
+          "length": 80,
+          "start": 305,
+          "color": 0
         },
         {
-          "start": 200,
-          "length": 100
+          "length": 110,
+          "start": 175,
+          "color": 0
         },
         {
-          "start": 320,
-          "length": 20
+          "length": 60,
+          "start": 95,
+          "color": 0
         }
       ]
     }
