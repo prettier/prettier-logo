@@ -1,4 +1,7 @@
 // Colors
+.c0
+  opacity: 0.5;
+  stroke: #4D616E;
 .c1
   stroke: #56B3B4
 .c2
@@ -7,14 +10,6 @@
   stroke: #F7BA3E
 .c4
   stroke: #BF85BF
-
-
-.c1, .c2, .c3, .c4
-  opacity: 1
-
-g > path
-  opacity: 0.5;
-  stroke: #4D616E;
 
 offset-duration = 900ms
 delay = 70ms
@@ -29,13 +24,10 @@ load(name)
     #{name} .l{i} > path
       animation-delay: delay * i, delay * i + offset-duration
 
-
   dash(line, path, length, offset, initial-offset, roll)
     @keyframes {name}-l{line}p{path}-initial
       0%
         stroke-dashoffset: -(offset) - initial-offset
-      100%
-        stroke-dashoffset: -(offset)
 
     @keyframes {name}-l{line}p{path}
       0%, 60%
@@ -45,6 +37,7 @@ load(name)
 
     #{name} .l{line} .p{path}
       stroke-dasharray: length,(total - length)
+      stroke-dashoffset: -(offset)
       animation-name: s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path)), s('%s-l%sp%s', unquote(name), unquote(line), unquote(path))
 
   #{name} .dash
