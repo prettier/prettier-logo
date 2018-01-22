@@ -3,7 +3,6 @@ import { h, render, Component } from "preact";
 
 import wide from "./wide.json";
 import icon from "./icon.json";
-import "./style.styl";
 
 const Line = ({ index, dashes, total }) => (
   <g className={`l${index}`}>

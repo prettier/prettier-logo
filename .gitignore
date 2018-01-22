@@ -3,5 +3,7 @@ dist/
 .tern-port
 .cache/
 
+bundle.js
+style.css
 *.json
 !package.json
