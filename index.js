@@ -1,7 +1,8 @@
 import { h, render, Component } from "preact";
 /** @jsx h */
 
-import data from "./data.json";
+import wide from "./wide.json";
+import icon from "./icon.json";
 import "./style.styl";
 
 const Line = ({ index, dashes, total }) => (
@@ -15,14 +16,14 @@ const Line = ({ index, dashes, total }) => (
   </g>
 );
 
-const Svg = ({ data: { total, lines } }) => {
+const Svg = ({ data: { total, lines }, id }) => {
   const height = lines.length * 20 + 10;
   const width = total + 20;
   return (
     <svg
+      id={id}
       height={height}
       width={width}
-      id="logo"
       viewbox={`0 0 ${height} ${width}`}
       version="1.1"
     >
@@ -35,7 +36,8 @@ const Svg = ({ data: { total, lines } }) => {
 
 render(
   <div id="app">
-    <Svg data={data} />
+    <Svg id="wide" data={wide} />
+    <Svg id="icon" data={icon} />
   </div>,
   document.body
 );

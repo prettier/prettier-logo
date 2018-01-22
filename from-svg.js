@@ -35,8 +35,10 @@ const rolls = [1, -1, 1, 1, -1, 1, 2, -1, 1, -2, 1, 2, -1];
         case "#EA5E5E":
           return 2;
         case "#FBBF47":
+        case "#F7B93E":
           return 3;
         case "#C693C6":
+        case "#BF85BF":
           return 4;
         default:
           return 0;
@@ -68,7 +70,7 @@ const rolls = [1, -1, 1, 1, -1, 1, 2, -1, 1, -2, 1, 2, -1];
   }));
 
   const data = {
-    total: Math.max(...dashes.map(({ length, start }) => length + start)),
+    total: Math.max(...dashes.map(({ length, start }) => length + start)) - 10,
     lines
   };
 

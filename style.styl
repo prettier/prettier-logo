@@ -20,48 +20,52 @@ offset-duration = 900ms
 delay = 70ms
 easing = cubic-bezier(0.43, 0.12, 0.44, 1)
 
-data = json('data.json', { hash: true })
-lines = data.lines
-total = data.total + 20
+load(name)
+  data = json(s('%s.json', unquote(name)), { hash: true })
+  lines = data.lines
+  total = data.total + 20
 
-line(i)
-  .l{i} > path
-    animation-delay: delay * i, delay * i + offset-duration
-
-
-dash(line, path, length, offset, initial-offset, roll)
-  @keyframes l{line}p{path}-initial
-    0%
-      stroke-dashoffset: -(offset) - initial-offset
-    100%
-      stroke-dashoffset: -(offset)
-
-  @keyframes l{line}p{path}
-    0%, 60%
-      stroke-dashoffset: -(offset)
-    100%
-      stroke-dashoffset: -(offset) + (roll * total)
-
-  .l{line} .p{path}
-    stroke-dasharray: length,(total - length)
-    animation-name: s('l%sp%s-initial', unquote(line), unquote(path)), s('l%sp%s', unquote(line), unquote(path))
-
-.dash
-  stroke-linecap: round
-  stroke-width: 10
-
-  animation-timing-function: easing, ease-in-out
-  animation-duration: offset-duration, 6s
-  animation-fill-mode: both, none
-  animation-iteration-count: 1, infinite;
-
-for i, l in lines
   line(i)
-  dashes = l.dashes
-  initial-offset = l.initialOffset
+    #{name} .l{i} > path
+      animation-delay: delay * i, delay * i + offset-duration
 
-  for j, d in dashes
-    dash(i, j, d.length, d.start, initial-offset, l.roll)
+
+  dash(line, path, length, offset, initial-offset, roll)
+    @keyframes {name}-l{line}p{path}-initial
+      0%
+        stroke-dashoffset: -(offset) - initial-offset
+      100%
+        stroke-dashoffset: -(offset)
+
+    @keyframes {name}-l{line}p{path}
+      0%, 60%
+        stroke-dashoffset: -(offset)
+      100%
+        stroke-dashoffset: -(offset) + (roll * total)
+
+    #{name} .l{line} .p{path}
+      stroke-dasharray: length,(total - length)
+      animation-name: s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path)), s('%s-l%sp%s', unquote(name), unquote(line), unquote(path))
+
+  #{name} .dash
+    stroke-linecap: round
+    stroke-width: 10
+
+    animation-timing-function: easing, ease-in-out
+    animation-duration: offset-duration, 6s
+    animation-fill-mode: both, none
+    animation-iteration-count: 1, infinite;
+
+  for i, l in lines
+    line(i)
+    dashes = l.dashes
+    initial-offset = l.initialOffset
+
+    for j, d in dashes
+      dash(i, j, d.length, d.start, initial-offset, l.roll)
+
+load('icon')
+load('wide')
 
 // Misc
 body
@@ -76,24 +80,4 @@ body
   flex-direction: column
   align-items: center
   justify-content: center
-
-button
-  border: solid 1px white
-  padding: 10px 30px
-  border-radius: 3px
-  font-size: 1.5em
-  font-weight: bold
-  color: white
-  background-color: transparent
-  outline: none
-  display: block
-  margin: 10px
-  opacity: 0.8
-  transition: opacity .2s ease
-
-  &:hover
-    opacity: 1
-
-  &:active
-    transform: translateY(2px)
 
