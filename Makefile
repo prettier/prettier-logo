@@ -4,41 +4,49 @@ BIN = ./node_modules/.bin
 
 .PHONY: build watch watch-all watch-stylus watch-js serve clean
 
-watch:
-	@$(MAKE) -j3 watch-all
+watch: $(DATAFILES)
+	@$(MAKE) -j4 watch-all
 
-build: dist/style.css dist/bundle.js
+build: dist/app.css dist/wide.css dist/icon.css dist/bundle.js dist/AnimatedLogo.js dist/index.js dist/index.html
 
-watch-all: watch-stylus watch-js serve
+watch-all: watch-stylus watch-bundle watch-babel serve
 
 watch-stylus:
 	@mkdir -p dist
-	$(BIN)/stylus -w style.styl -o dist
+	$(BIN)/stylus -w src -o dist
 
-watch-js:
+watch-bundle:
 	@mkdir -p dist
-	$(BIN)/watchify -t babelify index.js -o dist/bundle.js
+	$(BIN)/watchify -t babelify src/index.js -o dist/bundle.js
 
-serve: dist/index.html dist/style.css dist/bundle.js
+watch-babel:
+	@mkdir -p dist
+	$(BIN)/babel src --out-dir dist
+
+serve: dist/index.html dist/app.css dist/bundle.js
 	$(BIN)/serve dist
 
-dist/index.html: index.html
+dist/%.html: src/%.html
 	@mkdir -p dist
 	cp $< $@
 
 icon.svg wide.svg: $(SKETCHFILE)
 	sketchtool export artboards $^
 
-dist/bundle.js: index.js
+dist/bundle.js: src/index.js
 	@mkdir -p dist
 	$(BIN)/browserify -t babelify $< > $@
 
-dist/style.css: style.styl $(DATAFILES)
+dist/%.css: src/%.styl $(DATAFILES)
 	@mkdir -p dist
-	$(BIN)/stylus < $< > $@
+	$(BIN)/stylus $< -o $@
+
+dist/%.js: src/%.js
+	@mkdir -p dist
+	$(BIN)/babel $< -o $@
 
 %.json: %.svg
 	node from-svg.js < $< > $@
 
 clean:
-	$(RM) -r dist
+	$(RM) -r dist $(DATAFILES)

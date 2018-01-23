@@ -1,17 +1,4 @@
-// Colors
-.c0
-  opacity: 0.5;
-  stroke: #4D616E;
-.c1
-  stroke: #56B3B4
-.c2
-  stroke: #EA5E5E
-.c3
-  stroke: #F7BA3E
-.c4
-  stroke: #BF85BF
-
-roll-duration = 1s
+roll-duration = 1.4s
 offset-duration = 900ms
 delay = 70ms
 easing = cubic-bezier(0.43, 0.12, 0.44, 1)
@@ -21,9 +8,22 @@ load(name)
   lines = data.lines
   total = data.total + 20
 
+  .prettier-logo-{name}
+    .c0
+      opacity: 0.5;
+      stroke: #4D616E;
+    .c1
+      stroke: #56B3B4
+    .c2
+      stroke: #EA5E5E
+    .c3
+      stroke: #F7BA3E
+    .c4
+      stroke: #BF85BF
+
   line(i)
-    #{name} .l{i} > path
-      animation-delay: delay * i, delay * i + offset-duration
+    .prettier-logo-{name} .l{i} > path
+      animation-delay: delay * i
 
   dash(line, path, length, offset, initial-offset, roll)
     anim-initial = s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path))
@@ -37,22 +37,22 @@ load(name)
       100%
         stroke-dashoffset: -(offset) + (roll * total)
 
-    #{name} .l{line} .p{path}
+    .prettier-logo-{name} .l{line} .p{path}
       stroke-dasharray: length,(total - length)
       stroke-dashoffset: -(offset)
       animation-name: anim-initial, none
 
-    #{name}.rolling .l{line} .p{path}
+    .prettier-logo-{name}.rolling .l{line} .p{path}
       animation-name: anim-initial, anim-roll
 
-  #{name} .dash
+  .prettier-logo-{name} .dash
     stroke-linecap: round
     stroke-width: 10
 
     animation-timing-function: easing, ease-in-out
     animation-duration: offset-duration, roll-duration
     animation-fill-mode: both, none
-    animation-iteration-count: 1, 1;
+    animation-iteration-count: 1;
 
   for i, l in lines
     line(i)
@@ -61,21 +61,3 @@ load(name)
 
     for j, d in dashes
       dash(i, j, d.length, d.start, initial-offset, l.roll)
-
-load('icon')
-load('wide')
-
-// Misc
-body
-  background: #1A2B34
-  padding: 0
-  margin: 0
-
-#app
-  height: 100vh
-  width: 100vw
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: space-evenly
-
