@@ -11,12 +11,13 @@
     "gh-pages": "gh-pages -d dist"
   },
   "dependencies": {
-    "preact": "^8.2.7"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-preact": "^1.1.0",
+    "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
     "file-or-stdin": "^1.0.2",

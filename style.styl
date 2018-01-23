@@ -11,6 +11,7 @@
 .c4
   stroke: #BF85BF
 
+roll-duration = 1s
 offset-duration = 900ms
 delay = 70ms
 easing = cubic-bezier(0.43, 0.12, 0.44, 1)
@@ -25,29 +26,33 @@ load(name)
       animation-delay: delay * i, delay * i + offset-duration
 
   dash(line, path, length, offset, initial-offset, roll)
-    @keyframes {name}-l{line}p{path}-initial
+    anim-initial = s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path))
+    anim-roll = s('%s-l%sp%s-roll', unquote(name), unquote(line), unquote(path))
+
+    @keyframes anim-initial
       0%
         stroke-dashoffset: -(offset) - initial-offset
 
-    @keyframes {name}-l{line}p{path}
-      0%, 60%
-        stroke-dashoffset: -(offset)
+    @keyframes anim-roll
       100%
         stroke-dashoffset: -(offset) + (roll * total)
 
     #{name} .l{line} .p{path}
       stroke-dasharray: length,(total - length)
       stroke-dashoffset: -(offset)
-      animation-name: s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path)), s('%s-l%sp%s', unquote(name), unquote(line), unquote(path))
+      animation-name: anim-initial, none
+
+    #{name}.rolling .l{line} .p{path}
+      animation-name: anim-initial, anim-roll
 
   #{name} .dash
     stroke-linecap: round
     stroke-width: 10
 
     animation-timing-function: easing, ease-in-out
-    animation-duration: offset-duration, 6s
+    animation-duration: offset-duration, roll-duration
     animation-fill-mode: both, none
-    animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, 1;
 
   for i, l in lines
     line(i)
@@ -72,5 +77,5 @@ body
   display: flex
   flex-direction: column
   align-items: center
-  justify-content: center
+  justify-content: space-evenly
 
