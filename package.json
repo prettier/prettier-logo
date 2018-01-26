@@ -7,8 +7,7 @@
   "scripts": {
     "start": "make watch",
     "build": "make build",
-    "deploy": "npm run build && npm run gh-pages",
-    "gh-pages": "gh-pages -d dist"
+    "deploy": "make deploy"
   },
   "dependencies": {
     "react": "^16.2.0",

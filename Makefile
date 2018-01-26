@@ -2,12 +2,15 @@ SKETCHFILE = prettier.sketch
 DATAFILES = icon.json wide.json
 BIN = ./node_modules/.bin
 
-.PHONY: build watch watch-all watch-stylus watch-js serve clean
+.PHONY: build deploy watch watch-all watch-stylus watch-js serve clean
 
 watch: $(DATAFILES)
 	@$(MAKE) -j4 watch-all
 
 build: dist/app.css dist/wide.css dist/icon.css dist/bundle.js dist/AnimatedLogo.js dist/index.js dist/index.html
+
+deploy: build
+	$(BIN)/gh-pages -d dist
 
 watch-all: watch-stylus watch-bundle watch-babel serve
 

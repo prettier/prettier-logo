@@ -7,6 +7,8 @@ const versions = { wide, icon };
 
 const noop = () => {};
 
+const checkAnimationName = f => e => e.animationName.includes("roll") && f();
+
 const Line = ({ index, dashes, total, onAnimationEnd }) => (
   <g className={`l${index}`}>
     {dashes.map(({ color }, j) => (
@@ -14,7 +16,7 @@ const Line = ({ index, dashes, total, onAnimationEnd }) => (
         d={`m 5 ${index * 20 + 5} l ${total} 0`}
         key={j}
         className={["dash", `p${j}`, `c${color}`].join(" ")}
-        onAnimationEnd={j === 0 ? onAnimationEnd : noop}
+        onAnimationEnd={j === 0 ? checkAnimationName(onAnimationEnd) : noop}
       />
     ))}
   </g>
