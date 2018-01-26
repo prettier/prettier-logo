@@ -7,7 +7,8 @@ const versions = { wide, icon };
 
 const noop = () => {};
 
-const checkAnimationName = f => e => e.animationName.includes("roll") && f();
+const checkAnimationName = f => e =>
+  e.animationName.includes("roll") && f && f();
 
 const Line = ({ index, dashes, total, onAnimationEnd }) => (
   <g className={`l${index}`}>

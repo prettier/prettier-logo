@@ -20,7 +20,7 @@ watch-stylus:
 
 watch-bundle:
 	@mkdir -p dist
-	$(BIN)/watchify -t babelify src/index.js -o dist/bundle.js
+	$(BIN)/watchify -t babelify src/app.js -o dist/bundle.js
 
 watch-babel:
 	@mkdir -p dist
@@ -36,7 +36,7 @@ dist/%.html: src/%.html
 icon.svg wide.svg: $(SKETCHFILE)
 	sketchtool export artboards $^
 
-dist/bundle.js: src/index.js
+dist/bundle.js: src/app.js
 	@mkdir -p dist
 	$(BIN)/browserify -t babelify $< > $@
 

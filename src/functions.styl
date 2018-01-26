@@ -1,5 +1,5 @@
 roll-duration = 1.4s
-offset-duration = 900ms
+offset-duration = 2s
 delay = 70ms
 easing = cubic-bezier(0.43, 0.12, 0.44, 1)
 
@@ -30,7 +30,7 @@ load(name)
     anim-roll = s('%s-l%sp%s-roll', unquote(name), unquote(line), unquote(path))
 
     @keyframes anim-initial
-      0%
+      0%, 50%
         stroke-dashoffset: -(offset) - initial-offset
 
     @keyframes anim-roll

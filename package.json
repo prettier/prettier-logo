@@ -1,7 +1,7 @@
 {
-  "name": "prettier-animated-logo",
+  "name": "@sandhose/prettier-animated-logo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "author": "Quentin Gliech <quentin.gliech@etu.unistra.fr>",
   "scripts": {
