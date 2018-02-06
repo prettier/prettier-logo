@@ -1,13 +1,15 @@
 {
   "name": "@sandhose/prettier-animated-logo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "Quentin Gliech <quentin.gliech@etu.unistra.fr>",
   "scripts": {
     "start": "make watch",
     "build": "make build",
-    "deploy": "make deploy"
+    "deploy": "make deploy",
+    "clean": "make clean",
+    "prepare": "make build"
   },
   "dependencies": {
     "react": "^16.2.0",
