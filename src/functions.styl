@@ -52,7 +52,10 @@ load(name)
     animation-timing-function: easing, ease-in-out
     animation-duration: offset-duration, roll-duration
     animation-fill-mode: both, none
-    animation-iteration-count: 1;
+    animation-iteration-count: 1
+
+    @media (prefers-reduced-motion: reduce)
+      animation: none
 
   for i, l in lines
     line(i)
