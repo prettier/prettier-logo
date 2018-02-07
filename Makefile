@@ -2,7 +2,17 @@ SKETCHFILE = prettier.sketch
 DATAFILES = icon.json wide.json
 BIN = ./node_modules/.bin
 
-.PHONY: build deploy watch watch-all watch-stylus watch-js serve clean
+EXPORT_DIR = images
+EXPORTS = banner avatar logo icon wide
+
+DARK_EXPORTS = $(EXPORTS:%=prettier-%-dark)
+LIGHT_EXPORTS = $(EXPORTS:%=prettier-%-light)
+ALL_EXPORTS = $(DARK_EXPORTS) $(LIGHT_EXPORTS)
+PNG_EXPORTS = $(ALL_EXPORTS:%=$(EXPORT_DIR)/%.png)
+SVG_EXPORTS = $(ALL_EXPORTS:%=$(EXPORT_DIR)/%.svg)
+EXPORT_FILES = $(PNG_EXPORTS) $(SVG_EXPORTS)
+
+.PHONY: build deploy watch watch-all watch-stylus watch-js serve clean exports
 
 watch: $(DATAFILES)
 	@$(MAKE) -j4 watch-all
@@ -33,8 +43,13 @@ dist/%.html: src/%.html
 	@mkdir -p dist
 	cp $< $@
 
-icon.svg wide.svg: $(SKETCHFILE)
-	sketchtool export artboards $^
+exports: $(EXPORT_FILES) $(EXPORT_DIR)/key.png
+
+$(EXPORT_FILES): $(SKETCHFILE)
+	sketchtool export artboards --output=$(EXPORT_DIR) $^
+
+$(EXPORT_DIR)/key.png: $(SKETCHFILE)
+	sketchtool export pages --item=key --output=$(EXPORT_DIR) $^
 
 dist/bundle.js: src/app.js
 	@mkdir -p dist
@@ -48,8 +63,11 @@ dist/%.js: src/%.js
 	@mkdir -p dist
 	$(BIN)/babel $< -o $@
 
-%.json: %.svg
+%.json: $(EXPORT_DIR)/prettier-%-light.svg
 	node from-svg.js < $< > $@
 
 clean:
 	$(RM) -r dist $(DATAFILES)
+
+clean-exports:
+	$(RM) $(EXPORT_FILES) $(EXPORT_DIR)/key.png
