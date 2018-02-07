@@ -1,0 +1,34 @@
+{
+  "name": "@sandhose/prettier-animated-logo",
+  "version": "1.0.3",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": "Quentin Gliech <quentin.gliech@etu.unistra.fr>",
+  "scripts": {
+    "start": "make watch",
+    "build": "make build",
+    "deploy": "make deploy",
+    "clean": "make clean",
+    "prepare": "make build"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
+    "file-or-stdin": "^1.0.2",
+    "gh-pages": "^1.1.0",
+    "lodash": "^4.17.4",
+    "puppeteer": "^1.0.0",
+    "serve": "^6.4.8",
+    "stylus": "^0.54.5",
+    "watchify": "^3.9.0"
+  }
+}

@@ -1,0 +1,66 @@
+roll-duration = 1.4s
+offset-duration = 2s
+delay = 70ms
+easing = cubic-bezier(0.43, 0.12, 0.44, 1)
+
+load(name)
+  data = json(s('%s.json', unquote(name)), { hash: true })
+  lines = data.lines
+  total = data.total + 20
+
+  .prettier-logo-{name}
+    .c0
+      opacity: 0.5;
+      stroke: #4D616E;
+    .c1
+      stroke: #56B3B4
+    .c2
+      stroke: #EA5E5E
+    .c3
+      stroke: #F7BA3E
+    .c4
+      stroke: #BF85BF
+
+  line(i)
+    .prettier-logo-{name} .l{i} > path
+      animation-delay: delay * i
+
+  dash(line, path, length, offset, initial-offset, roll)
+    anim-initial = s('%s-l%sp%s-initial', unquote(name), unquote(line), unquote(path))
+    anim-roll = s('%s-l%sp%s-roll', unquote(name), unquote(line), unquote(path))
+
+    @keyframes anim-initial
+      0%, 50%
+        stroke-dashoffset: -(offset) - initial-offset
+
+    @keyframes anim-roll
+      100%
+        stroke-dashoffset: -(offset) + (roll * total)
+
+    .prettier-logo-{name} .l{line} .p{path}
+      stroke-dasharray: length,(total - length)
+      stroke-dashoffset: -(offset)
+      animation-name: anim-initial, none
+
+    .prettier-logo-{name}.rolling .l{line} .p{path}
+      animation-name: anim-initial, anim-roll
+
+  .prettier-logo-{name} .dash
+    stroke-linecap: round
+    stroke-width: 10
+
+    animation-timing-function: easing, ease-in-out
+    animation-duration: offset-duration, roll-duration
+    animation-fill-mode: both, none
+    animation-iteration-count: 1
+
+    @media (prefers-reduced-motion: reduce)
+      animation: none
+
+  for i, l in lines
+    line(i)
+    dashes = l.dashes
+    initial-offset = l.initialOffset
+
+    for j, d in dashes
+      dash(i, j, d.length, d.start, initial-offset, l.roll)
