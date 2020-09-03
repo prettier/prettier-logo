@@ -26,7 +26,7 @@
     "file-or-stdin": "^2.0.0-2",
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
-    "puppeteer": "^1.11.0",
+    "puppeteer": "^1.13.0",
     "serve": "^10.1.1",
     "stylus": "^0.54.5",
     "watchify": "^3.11.0"
